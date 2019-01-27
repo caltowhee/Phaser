@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>UCode Lab</title>
+
+    <link href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css" media="all" rel="stylesheet" type="text/css"/>
+    <link href="/assets/application-2fe96bb04cd79df44af490232fe68c92.css" media="screen" rel="stylesheet" />
+    <script src="/assets/vendor/modernizr-27026b7be4872501a52762e20331dd81.js"></script>
+    <script src="/assets/application-3272163226f93624031c461cf042df5e.js"></script>
+    <meta content="authenticity_token" name="csrf-param" />
+<meta content="j6bb4Wzyx76MTk/iY75y1HvE1WayEnuZXll4hy1A/e0=" name="csrf-token" />
+  </head>
+
+  <body>
+
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<h1 style="text-align: center;">Phaser - Mario UCoin Game!</h1>
+
+
+<h2 style="float:left"><a href="/lesson/2978">Back</a></h2>
+<h2 style="float:right"><a data-method="patch" href="/lesson/3051/finish" rel="nofollow">Next</a></h2>
+<h3 style="text-align: center;">4.5 - Lesson - Loops</h3>
+
+
+<script>
+$('body').bind('copy paste',function(e) {
+    e.preventDefault(); return false; 
+});
+</script>
+
+  <script>
+    var hideNextElement = document.getElementById('hide_next');
+    if (hideNextElement)
+        hideNextElement.style.height = '54px';
+  </script>
+<div class="row">
+  <div class="large-12 columns">
+    <p><center><h5> Another common thing to do in JavaScript is having to go through an entire array to look at all of its data. This is solved using loops! </h5></center></p>
+
+<ul>
+<li>We will learn three different loops to loop over the same array to see all of its data:</li>
+</ul>
+
+<p><center></p>
+
+<h5>For Loop:</h5>
+
+<p></center></p>
+
+<pre><code class="prettyprint">//First let&#39;s make an array, it can contain any data you want!
+var yourArray = [&quot;UCode&quot;, &quot;is&quot;, &quot;awesome&quot;, 9001, 4, true, false, {firstName: &quot;Super&quot;, lastName: &quot;UCoder&quot;}];
+
+//Now we need to loop through the array to get it&#39;s data, one element at a time!
+
+//The first loop I will use is called a For Loop, which has three steps to write it. 
+//The first is the initialization of an iterator. Usually a variable that starts at 0.
+//The second is the condition. This condition usually checks the iterator and is checked after each loop, if it is true the loop will continue, if it is false the loop will end!
+//The third and final thing is the actual iteration of the variable iterator. You add or subtract to the iterator.
+
+//Create a var i (for iteator) and initialize it to 0, i &lt; length of the array (array.length returns the number of elements in the array, i++ adds one to the variable i
+for(var i = 0; i &lt; yourArray.length; i++)
+{
+   console.log(yourArray[i]); //notice I use the variable i for the index into the array. 
+   //We like to start at 0 for iterators because arrays indices start at 0 and it creates a perfect index for us!
+}
+//Congratulations, you wrote a for loop accessing an array&#39;s data!
+
+</code></pre>
+
+<p><center></p>
+
+<h5>While Loop:</h5>
+
+<p></center></p>
+
+<pre><code class="prettyprint">//Now, lets write a while loop! 
+//A while loop has one condition that it checks, if the condition is true it will keep looping, if it is false the loop will stop.
+
+var i = 0; //we still need an iterator so lets declare one at the top of our file
+while(i &lt; yourArray.length)
+{
+    console.log(yourArray[i]); //Will log the data at index i
+    i++;  //We still need to iterate and add to our iterator so it does not log the same index over and over!
+}
+//As you can see, the three steps of the for loop are now separated in their own lines in the while loop, and both loops are doing the exact same thing.
+//Congratulations you wrote a while loop accessing an array&#39;s data!
+
+</code></pre>
+
+<p><center></p>
+
+<h5>Do While Loop:</h5>
+
+<p></center></p>
+
+<pre><code class="prettyprint">//Now for the final loop!
+//A do while loop!
+//This loop is basically a while loop that is separated into the code block that will be looped (put inside the `do` part), and the condition that is checked (put inside the `while` part).
+
+var i = 0;
+
+do {
+   console.log(yourArray[i]);  //will log data at index i
+   i++;  //will still need to add to the index to change which element to access
+}
+while(i &lt; yourArray.length);
+
+//Congratulations you know now the three different loops in JavaScript
+
+</code></pre>
+
+<p><center><h1> EXERCISE: </h1></center></p>
+
+<ol>
+<li>Write out a FOR loop in the console.</li>
+<li>Write out a WHILE loop in the console.</li>
+<li>Write out a DO WHILE loop in the console.</li>
+</ol>
+
+<p><center><h5> Make sure you are using console.log inside your loops to give feedback of how many times your loop ran! </h5></center></p>
+
+<p><center> Find out which loop you prefer! </center></p>
+
+  </div>
+</div>
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+
+    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+  </body>
+</html>

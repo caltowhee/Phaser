@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>UCode Lab</title>
+
+    <link href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css" media="all" rel="stylesheet" type="text/css"/>
+    <link href="/assets/application-2fe96bb04cd79df44af490232fe68c92.css" media="screen" rel="stylesheet" />
+    <script src="/assets/vendor/modernizr-27026b7be4872501a52762e20331dd81.js"></script>
+    <script src="/assets/application-3272163226f93624031c461cf042df5e.js"></script>
+    <meta content="authenticity_token" name="csrf-param" />
+<meta content="j6bb4Wzyx76MTk/iY75y1HvE1WayEnuZXll4hy1A/e0=" name="csrf-token" />
+  </head>
+
+  <body>
+
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<h1 style="text-align: center;">Phaser - Mario UCoin Game!</h1>
+
+
+<h2 style="float:left"><a href="/lesson/3069">Back</a></h2>
+<h2 style="float:right"><a data-method="patch" href="/lesson/3050/finish" rel="nofollow">Next</a></h2>
+<h3 style="text-align: center;">1.25 - Lesson - Associated arrays</h3>
+
+
+<script>
+$('body').bind('copy paste',function(e) {
+    e.preventDefault(); return false; 
+});
+</script>
+
+  <script>
+    var hideNextElement = document.getElementById('hide_next');
+    if (hideNextElement)
+        hideNextElement.style.height = '54px';
+  </script>
+<div class="row">
+  <div class="large-12 columns">
+    <p><center><h5> We will be learning about Associated Arrays and how useful key|value pairs are in JavaScript programming! </h5></center></p>
+
+<ul>
+<li><p>A <code class="prettyprint">key|value pair</code> is used very frequently in programming and you need to know this! It is a simple concept, a key is a short name that refers to the value; almost like a nickname such as <code class="prettyprint">Alex</code> short for <code class="prettyprint">Alexander</code>. </p></li>
+<li><p>However, in JavaScript programming the <code class="prettyprint">value</code> tends to be a very large <code class="prettyprint">Object</code> or <code class="prettyprint">Number</code> with a key being a short <code class="prettyprint">String</code>. </p></li>
+<li><p>Let&#39;s demonstrate this functionality in a hypothetical situation: Let&#39;s say Mario and his friends just took a test and have a possible score of 0 to 100!</p></li>
+</ul>
+
+<pre><code class="prettyprint">var grades = {
+
+mario: 99,
+luigi: 98,
+koopa: 88,
+bowser: 85,
+peach: 100,
+daisy: 90   
+
+};
+
+
+//Now since we have a structure of keys as names with values as grades we can just call the key to get the associated value!
+//Here are two ways we can access the key to get the value!
+console.log(grades[&quot;mario&quot;]); //Treat it like an array and instead of an index we pass in the key!
+console.log(grades.mario);  //Treat the key like a member variable to access the data!
+//This will log Mario&#39;s associated grade which is 99!
+
+console.log(grades[&quot;peach&quot;]); //Treat it like an array and instead of an index we pass in the key!
+console.log(grades.peach); //Treat the key like a member variable to access the data!
+//This will log Peach&#39;s associated grade which is 100!
+
+//You can do this with any member variable with any type you have added to the object!
+
+
+</code></pre>
+
+<p><center><h1>EXERCISE:</h1></center><br>
+Create your own associated array with 4 or more key + values and console.log each key to get the associated value!</p>
+
+  </div>
+</div>
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+
+    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+  </body>
+</html>

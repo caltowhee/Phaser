@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>UCode Lab</title>
+
+    <link href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css" media="all" rel="stylesheet" type="text/css"/>
+    <link href="/assets/application-2fe96bb04cd79df44af490232fe68c92.css" media="screen" rel="stylesheet" />
+    <script src="/assets/vendor/modernizr-27026b7be4872501a52762e20331dd81.js"></script>
+    <script src="/assets/application-3272163226f93624031c461cf042df5e.js"></script>
+    <meta content="authenticity_token" name="csrf-param" />
+<meta content="j6bb4Wzyx76MTk/iY75y1HvE1WayEnuZXll4hy1A/e0=" name="csrf-token" />
+  </head>
+
+  <body>
+
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<h1 style="text-align: center;">Phaser - Mario UCoin Game!</h1>
+
+
+<h2 style="float:left"><a href="/lesson/3046">Back</a></h2>
+<h2 style="float:right"><a data-method="patch" href="/lesson/2976/finish" rel="nofollow">Next</a></h2>
+<h3 style="text-align: center;">2.0 - Project - Hello World!</h3>
+
+
+<script>
+$('body').bind('copy paste',function(e) {
+    e.preventDefault(); return false; 
+});
+</script>
+
+  <script>
+    var hideNextElement = document.getElementById('hide_next');
+    if (hideNextElement)
+        hideNextElement.style.height = '54px';
+  </script>
+<div class="row">
+  <div class="large-12 columns">
+    <p><center><h5>Alright so very quickly we can start adding to this canvas using Phaser&#39;s functions to do most of the work for us!</h5></center></p>
+
+<p><center><h3> Displaying Text: </h3><br>
+<code class="prettyprint">game.add.text(positionX, positionY, text, style)</code><br>
+</center></p>
+
+<ul>
+<li><code class="prettyprint">positionX</code>: Horizontal position of the text</li>
+<li><code class="prettyprint">positionY</code>: Vertical position of the text</li>
+<li><code class="prettyprint">text</code>: Text to display</li>
+<li><code class="prettyprint">style</code>: Object that states the style of the text</li>
+</ul>
+
+<pre><code class="prettyprint">var mainState = {
+     preload: function()
+     {
+           //This function will be executed at the beginning
+           //This is where we load the game&#39;s assets 
+     },
+     create: function()
+     {
+           //This function is called after the preload function
+           //Here we set up the game, add sprites, add spritesheets, animations etc.
+           this.helloText = game.add.text(250, 170, &#39;Hello World!&#39;, {font: &#39;20px Roboto&#39;, fill: &#39;#FF0000&#39; } );
+     },
+     update: function()
+     {
+           //This function is called 60 times per second
+           //It contains the game&#39;s logic
+     }
+};
+
+var game = new Phaser.Game(500, 340, Phaser.AUTO, &#39;game&#39;);
+//Then we must use this mainState variable instead of an inline object
+game.state.add(&#39;main&#39;, mainState);
+
+game.state.start(&#39;main&#39;);
+</code></pre>
+
+<p>This one line of code inside the <code class="prettyprint">create</code> function adds text to our canvas!</p>
+
+<p><center><h4>Here is what you should see when you preview your page:<br><img src="http://i.imgur.com/EwpOyVg.png" /></h4></center></p>
+
+<p><center> <h3>CHALLENGE: </h3></center> </p>
+
+<ul>
+<li>Set the anchor to our <code class="prettyprint">helloText</code> variable to be in the center!
+<center><h5> HINT:</h5></center></li>
+<li>Use the <code class="prettyprint">anchor.setTo(x,y)</code> function on the variable you wish to set the anchor to! </li>
+</ul>
+
+  </div>
+</div>
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+
+    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+  </body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>UCode Lab</title>
+
+    <link href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css" media="all" rel="stylesheet" type="text/css"/>
+    <link href="/assets/application-2fe96bb04cd79df44af490232fe68c92.css" media="screen" rel="stylesheet" />
+    <script src="/assets/vendor/modernizr-27026b7be4872501a52762e20331dd81.js"></script>
+    <script src="/assets/application-3272163226f93624031c461cf042df5e.js"></script>
+    <meta content="authenticity_token" name="csrf-param" />
+<meta content="j6bb4Wzyx76MTk/iY75y1HvE1WayEnuZXll4hy1A/e0=" name="csrf-token" />
+  </head>
+
+  <body>
+
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<h1 style="text-align: center;">Phaser - Mario UCoin Game!</h1>
+
+
+<h2 style="float:left"><a href="/lesson/2975">Back</a></h2>
+<h2 style="float:right"><a data-method="patch" href="/lesson/3069/finish" rel="nofollow">Next</a></h2>
+<h3 style="text-align: center;">1.125 - Project - Start the JavaScript!</h3>
+
+
+
+  <script>
+    var hideNextElement = document.getElementById('hide_next');
+    if (hideNextElement)
+        hideNextElement.style.height = '54px';
+  </script>
+<div class="row">
+  <div class="large-12 columns">
+    <ul>
+<li>Start by making a new JavaScript file and name it <code class="prettyprint">main.js</code>, this is the file we have already included in the HTML!</li>
+</ul>
+
+<p><center><h5>Make sure it is a completely blank JavaScript file before continuing on to write the next bit of code!</h5></center></p>
+
+<p>A game is usually divided into multiple scenes such as a loading scene, menu scene, and a play scene. In Phaser a scene is called a <code class="prettyprint">state</code>!</p>
+
+<ul>
+<li>We will create our state.</li>
+<li>Initialize Phaser.</li>
+<li>Start our state.</li>
+</ul>
+
+<p><center><h3> JavaScript Code: </h3></center></p>
+
+<pre><code class="prettyprint">var game;
+
+var SCREEN_W = 500;
+var SCREEN_H = 340;
+
+var mainState = {
+  preload: function()
+  {
+     //This function will be executed at the very beginning of this state
+     //That&#39;s where we load the game&#39;s assets
+  },
+  create: function()
+  {
+     //This function is called after the preload function
+     //Here we set up the game, display sprites, etc.
+  },
+  update: function()
+  {
+     //This function is called 60 times per second
+     //It contains the game&#39;s logic
+  }
+};
+
+game = new Phaser.Game(SCREEN_W, SCREEN_H, Phaser.AUTO, &#39;game&#39;);
+game.state.add(&#39;main&#39;, mainState );
+
+game.state.start(&#39;main&#39;);
+</code></pre>
+
+<p>Don&#39;t worry if you do not understand everything, we will cover states in greater detail shortly!</p>
+
+<ul>
+<li>Preview your page and you should see an empty black canvas created by the Phaser.js framework!</li>
+</ul>
+
+  </div>
+</div>
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+
+    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+  </body>
+</html>

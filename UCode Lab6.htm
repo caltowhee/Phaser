@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>UCode Lab</title>
+
+    <link href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css" media="all" rel="stylesheet" type="text/css"/>
+    <link href="/assets/application-2fe96bb04cd79df44af490232fe68c92.css" media="screen" rel="stylesheet" />
+    <script src="/assets/vendor/modernizr-27026b7be4872501a52762e20331dd81.js"></script>
+    <script src="/assets/application-3272163226f93624031c461cf042df5e.js"></script>
+    <meta content="authenticity_token" name="csrf-param" />
+<meta content="j6bb4Wzyx76MTk/iY75y1HvE1WayEnuZXll4hy1A/e0=" name="csrf-token" />
+  </head>
+
+  <body>
+
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<h1 style="text-align: center;">Phaser - Mario UCoin Game!</h1>
+
+
+<h2 style="float:left"><a href="/lesson/2976">Back</a></h2>
+<h2 style="float:right"><a data-method="patch" href="/lesson/2977/finish" rel="nofollow">Next</a></h2>
+<h3 style="text-align: center;">3.0 - Project - Add A Sprite</h3>
+
+
+<script>
+$('body').bind('copy paste',function(e) {
+    e.preventDefault(); return false; 
+});
+</script>
+
+<script>
+$('h2').last().css('position', 'relative').append('<div id="hide_next" style="position:absolute;top:-3px;width:100%;height:24px;background-color:rgba(255,127,127,0.7)"></div>');
+</script>
+
+<form style="margin-left:40%" onsubmit="if ($('input[name=q1]:checked').val() == 1) { alert('Now you have learned how to load a sprite!'); $('#hide_next').fadeOut();} else alert('Oh no thats not quite right. '); return false;">
+<p>What function do we use to load a sprite?</p>
+<input type="radio" name="q1" value="1"/>game.load.image(imageName, imagePath);<br/>
+<input type="radio" name="q1" value="2"/>game.load.img(imageName, imagePath);<br/>
+<input type="radio" name="q1" value="3"/>game.load.image(imagePath, imageName);<br/>
+<input type="radio" name="q1" value="4"/>game.load.sprite(imageName, imagePath);<br/>
+<p><input type="submit" value="Answer"/></p>
+</form>
+
+  <script>
+    var hideNextElement = document.getElementById('hide_next');
+    if (hideNextElement)
+        hideNextElement.style.height = '54px';
+  </script>
+<div class="row">
+  <div class="large-12 columns">
+    <h5>Alright, if you are at this point then you have successfully drawn out text to the canvas. You guys are doing great!</h5>
+
+<p>Now you are ready to add an image, Phaser as well as other 2D frameworks call an image a sprite!<br>
+Lucky for you, we have provided you with an <code class="prettyprint">assets</code> folder that contains many images, sprite-sheets, and sounds!</p>
+
+<ul>
+<li>In Phaser, everytime we want to use an asset (image, sound, etc.) we first need to load it. For an image we can do that with <code class="prettyprint">game.load.image</code> function:</li>
+</ul>
+
+<p><center></p>
+
+<h3> Load the Sprite: </h3>
+
+<p><code class="prettyprint">game.load.image(imageName, imagePath)</code><br>
+</center></p>
+
+<ul>
+<li><code class="prettyprint">imageName</code>: the name (key) that will reference the image/sprite.</li>
+<li><code class="prettyprint">imagePath</code>: the path to the image.</li>
+</ul>
+
+<pre><code class="prettyprint">    preload: function()
+    {
+         //Here we load the image:
+         game.load.image(&#39;mario&#39;, &#39;assets/mario.png&#39;);       
+    }
+</code></pre>
+
+<p><br></p>
+
+<ul>
+<li>Once the sprite is loaded, we can display it on the screen with <code class="prettyprint">game.add.sprite</code> function.</li>
+</ul>
+
+<p><center></p>
+
+<h3> Display the Sprite:</h3>
+
+<p><code class="prettyprint">game.add.sprite(positionX, positionY, imageName)</code><br>
+</center> </p>
+
+<ul>
+<li><code class="prettyprint">positionX</code>: Horizontal position of the sprite. </li>
+<li><code class="prettyprint">positionY</code>: Vertical position of the sprite. </li>
+<li><code class="prettyprint">imageName</code>: The name of the image, predefined in the <code class="prettyprint">game.load.image</code> first parameter.</li>
+</ul>
+
+<pre><code class="prettyprint">    create: function()
+    {
+         this.helloText = game.add.text(250, 170, &#39;Hello World&#39;, { font: &#39;20px Roboto&#39;, fill: &#39;#FF0000&#39; } );
+         this.sprite = game.add.sprite(game.world.centerX, game.world.centerY, &#39;mario&#39;);
+    }
+</code></pre>
+
+<p><br><br>
+<center><h3> Rotate the Sprite </h3></center></p>
+
+<ul>
+<li>Now that a sprite has been added to our game/canvas we can start manipulating it! Let&#39;s start by rotating it one degree every frame!</li>
+</ul>
+
+<p><center> Sprite&#39;s have many member variables that access important data, one of these is it&#39;s angle! </center></p>
+
+<pre><code class="prettyprint">    update: function()
+    {
+         this.sprite.angle++;
+    }
+</code></pre>
+
+<p><br></p>
+
+<ul>
+<li>Preview your webpage and see your mario rotating! 
+<center>This is what it should look like:<br><img src="http://i.imgur.com/A65kCOT.png"></center></li>
+</ul>
+
+<p><center><h3>CHALLENGE:</h3></center></p>
+
+<ul>
+<li> If you figured out how set the anchor to your <code class="prettyprint">helloText</code> then you can do the same statement to center your mario to not rotate around its top-left corner!</li>
+</ul>
+
+  </div>
+</div>
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+
+    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+  </body>
+</html>

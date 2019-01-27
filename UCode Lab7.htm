@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>UCode Lab</title>
+
+    <link href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css" media="all" rel="stylesheet" type="text/css"/>
+    <link href="/assets/application-2fe96bb04cd79df44af490232fe68c92.css" media="screen" rel="stylesheet" />
+    <script src="/assets/vendor/modernizr-27026b7be4872501a52762e20331dd81.js"></script>
+    <script src="/assets/application-3272163226f93624031c461cf042df5e.js"></script>
+    <meta content="authenticity_token" name="csrf-param" />
+<meta content="j6bb4Wzyx76MTk/iY75y1HvE1WayEnuZXll4hy1A/e0=" name="csrf-token" />
+  </head>
+
+  <body>
+
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<h1 style="text-align: center;">Phaser - Mario UCoin Game!</h1>
+
+
+<h2 style="float:left"><a href="/lesson/2977">Back</a></h2>
+<h2 style="float:right"><a data-method="patch" href="/lesson/2978/finish" rel="nofollow">Next</a></h2>
+<h3 style="text-align: center;">4.0 - Project - Phaser Physics</h3>
+
+
+<script>
+$('body').bind('copy paste',function(e) {
+    e.preventDefault(); return false; 
+});
+$('h2').last().css('position', 'relative').append('<div id="hide_next" style="position:absolute;top:-3px;width:100%;height:24px;background-color:rgba(255,127,127,0.7)"></div>');
+</script>
+
+<form style="margin-left:40%" onsubmit="if ($('input[name=q1]:checked').val() == 3) { alert('Now you know the three physics engines of Phaser.js!'); $('#hide_next').fadeOut();} else alert('Oh no thats not quite right. '); return false;">
+<p>What three Physics Engine's are there in Phaser?</p>
+<input type="radio" name="q1" value="1"/>Box2D, Ninja, Arcade<br/>
+<input type="radio" name="q1" value="2"/>Bullet, P2, Arcade<br/>
+<input type="radio" name="q1" value="3"/>P2, Ninja, and Arcade<br/>
+<input type="radio" name="q1" value="4"/>Havok, Bullet, PhysX<br/>
+<p><input type="submit" value="Answer"/></p>
+</form>
+
+  <script>
+    var hideNextElement = document.getElementById('hide_next');
+    if (hideNextElement)
+        hideNextElement.style.height = '54px';
+  </script>
+<div class="row">
+  <div class="large-12 columns">
+    <p>Alright great job on adding a Mario sprite! Now we will learn how to change add physics to our game, and enable gravity!</p>
+
+<p><center><h3> Physics Engine </h3></center></p>
+
+<ul>
+<li>Phaser.js has actually <b>THREE</b> physics engines to handle collisions, gravity, and movement of any object you place inside your game, the three of these engines are:</li>
+<li>P2: A full-featured physics system that allows for complex collisions like Angry Birds!</li>
+<li>Ninja: A less powerful physics system than P2 but still has features to handle tilemaps and slopes.</li>
+<li>Arcade: The most basic system that allows for rectangle collisions called AABB, has the best performance.</li>
+</ul>
+
+<p><center> We will use the later for this game! Place this line in the <code class="prettyprint">create</code> function as well: </center></p>
+
+<pre><code class="prettyprint">game.physics.startSystem(Phaser.Physics.ARCADE);
+
+</code></pre>
+
+<p><br><br>
+<center><h3>Anchor Point</h3></center></p>
+
+<ul>
+<li>You may have noticed that even though all our sprites and text have been placed in the center of the screen, they are not actually centered.</li>
+<li>This is do to the anchor point. By default it is (0,0) which is the top-left most point of the image or text.</li>
+<li>The anchor points range from 0 (left) to 1 (right) and any decimal point in between will work!</li>
+</ul>
+
+<p><center> Let&#39;s add this line right after we: <code class="prettyprint">this.sprite = game.add.sprite(250, 170, &#39;mario&#39;);</code> in the <code class="prettyprint">create</code> function: </center></p>
+
+<pre><code class="prettyprint">this.sprite.anchor.setTo(.5, .5);
+</code></pre>
+
+<p><br><br>
+<center><h3>Add Physics &amp; Gravity to Sprite</h3></center></p>
+
+<ul>
+<li>We first have to use the system we started (arcade) to enable physics to the specific sprite (this.sprite).</li>
+<li>Then we can use a sprite&#39;s <code class="prettyprint">body</code> property to add gravity, velocity, and collisions!</li>
+</ul>
+
+<p><center> Add the following right after setting the anchor: </center></p>
+
+<pre><code class="prettyprint">game.physics.arcade.enable(this.sprite);
+this.sprite.body.gravity.y = 500;
+</code></pre>
+
+<ul>
+<li>Preview your page and you should see Mario fall off the screen with gravity!</li>
+</ul>
+
+<p><center> You should end up seeing something like this: <br> <img src="http://i.imgur.com/Rmj53YT.png" /> </center></p>
+
+  </div>
+</div>
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+
+    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+  </body>
+</html>

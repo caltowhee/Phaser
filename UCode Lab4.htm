@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>UCode Lab</title>
+
+    <link href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css" media="all" rel="stylesheet" type="text/css"/>
+    <link href="/assets/application-2fe96bb04cd79df44af490232fe68c92.css" media="screen" rel="stylesheet" />
+    <script src="/assets/vendor/modernizr-27026b7be4872501a52762e20331dd81.js"></script>
+    <script src="/assets/application-3272163226f93624031c461cf042df5e.js"></script>
+    <meta content="authenticity_token" name="csrf-param" />
+<meta content="j6bb4Wzyx76MTk/iY75y1HvE1WayEnuZXll4hy1A/e0=" name="csrf-token" />
+  </head>
+
+  <body>
+
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<h1 style="text-align: center;">Phaser - Mario UCoin Game!</h1>
+
+
+<h2 style="float:left"><a href="/lesson/3050">Back</a></h2>
+<h2 style="float:right"><a data-method="patch" href="/lesson/3046/finish" rel="nofollow">Next</a></h2>
+<h3 style="text-align: center;">1.5 - Lesson - Literal Objects &amp; Adding Functionality</h3>
+
+
+<script>
+$('body').bind('copy paste',function(e) {
+    e.preventDefault(); return false; 
+});
+</script>
+
+  <script>
+    var hideNextElement = document.getElementById('hide_next');
+    if (hideNextElement)
+        hideNextElement.style.height = '54px';
+  </script>
+<div class="row">
+  <div class="large-12 columns">
+    <p><center><h4>Hello and welcome to a lesson covering three very important topics in JavaScript!</h4></center></p>
+
+<ul>
+<li>The first topic we will address is the JavaScript <code class="prettyprint">Object</code> data type! </li>
+<li>Fundamentally, <q>everything</q> (strings,  in JavaScript is an Object and it is a good idea to keep that in mind when you are writing JavaScript.</li>
+</ul>
+
+<p>Here is how to write an Object in two different ways :</p>
+
+<pre><code class="prettyprint">var obj = {  };      //Literal Object notation:  { }
+var myObj = new Object();   //Object Constructor using keyword: new
+
+</code></pre>
+
+<p>You can even create your own function (which is an Object) to be a constructor for you like so:</p>
+
+<pre><code class="prettyprint">function Person(_firstName, _lastName, _age, _eyeColor)
+{
+   //it is good practice to differ your parameter variables with member variables so they are not exactly the same name.
+   //it causes confusion both with the javascript interpreter and for human readability
+
+   this.firstName = _firstName;  //assign the parameter(_firstName) to the object member (firstName)
+   this.lastName = _lastName;   //assign the parameter(_lastName) to the object member (lastName)
+   this.age = _age;             //assign the parameter(_age) to the object member (age)
+   this.eyeColor = _eyeColor;   //assign the parameter(_eyeColor) to the object member (eyeColor)
+}
+
+//now we need to use this function as a constructor!
+
+var myFather = new Person(&quot;John&quot;, &quot;Doe&quot;, 52, &quot;blue&quot;);
+var myMother = new Person(&quot;Jane&quot;, &quot;Doe&quot;, 48, &quot;green&quot;);
+
+</code></pre>
+
+<p>Now, a great inquiry to ask is: How can we access this data that we attached to the <code class="prettyprint">Objects</code> of <code class="prettyprint">myFather</code> and <code class="prettyprint">myMother</code>?</p>
+
+<ul>
+<li>Let&#39;s look at the keyword <code class="prettyprint">this</code>. That is how the data is getting attached to the Object, and since we make <code class="prettyprint">myFather</code> and <code class="prettyprint">myMother</code> to be equal to that object they now get attached these data values!</li>
+<li>First off, <code class="prettyprint">this</code> is not a type, it is not a variable, it is a keyword that will retrieve the <code class="prettyprint">Object</code> that <q>owns</q> the JavaScript code depending where you type <code class="prettyprint">this</code>.</li>
+<li>When used in a <code class="prettyprint">function</code>, <code class="prettyprint">this</code> is the <code class="prettyprint">Object</code> that <q>owns</q> the function. I will show you an example of this down below.</li>
+<li>When used in an <code class="prettyprint">Object</code>, <code class="prettyprint">this</code> is the <code class="prettyprint">Object</code> itself. We used this type of <code class="prettyprint">this</code> in the example above!</li>
+<li>I will continue where we left off after creating the variables <code class="prettyprint">myFather</code> and <code class="prettyprint">myMother</code> and clarify how we access the data we stored.</li>
+</ul>
+
+<pre><code class="prettyprint">//We stored four things to both myFather and myMother using the keyword this!
+//First was: firstName
+//Second was: lastName
+//Third was: age
+//And Fourth was: eyeColor
+//To access this data we first type the Object we want to use then use a dot/period (.) notation to have access to the member variables &amp; functions, like so:
+
+myFather.firstName;  //if we console.log(myFather.firstName)  it would log &quot;John&quot;
+myFather.lastName;  //if we console.log(myFather.lastName) it would log &quot;Doe&quot;
+myFather.age;          //if we console.log(myFather.age) it would log 52
+myFather.eyeColor;   //if we console.log(myFather.eyeColor) it would log &quot;blue&quot;
+
+//Notice we use the same name that we used after the `this.` and NOT the parameter  of the function with the underscore!
+//This is because this allowed us to attach the data to the object `myFather` and `myMother` or whatever we make equal to the function `Person`!
+
+</code></pre>
+
+<ul>
+<li>Now let&#39;s do a step further with the keyword <code class="prettyprint">this</code>! Instead of just attaching primitive data such as strings, numbers, etc. let&#39;s attach a function to an Object!</li>
+<li>Yes, that&#39;s right we are going to add a function inside of an Object!</li>
+<li>It is a better practice to avoid using the <code class="prettyprint">new</code> keyword, and use literal notation at all times. This is for performance reasons, as well as legibility for reading. So from now on I will be using Object Literal notation : {  } to represent an <code class="prettyprint">Object</code> and you should too!</li>
+</ul>
+
+<pre><code class="prettyprint">//Here I will re-write our Person constructor function to be an Object and add some functions to it as well.
+
+var person = {
+firstName: &quot;John&quot;,
+lastName: &quot;Doe&quot;,
+age: 52,
+eyeColor: &quot;Blue&quot;,
+//Notice that a comma (,) separates each member variable and functions. It indicates that there is something else going on this Object.
+GetFirstName: function()
+{
+   return this.firstName;
+},
+GetLastName: function()
+{
+   return this.lastName;
+},
+GetFullName: function()
+{
+   return this.firstName + &quot; &quot; + this.lastName;
+} //No comma needed because that is all we are adding to this Object...for now!
+
+};
+
+var myFather = person;  //make myFather be equal to a Person Object!
+
+//Now we can not only use the dot notation (.) to get member variables or to call functions
+//that have been attached to the objects!
+
+var firstName = myFather.GetFirstName();
+var lastName = myFather.GetLastName();
+var fullName = myFather.GetFullName();
+
+//Notice the only the difference between calling a member variable and a function (besides the name you give it) are the parenthesis &#39;()&#39; at the end which indicates you are calling a function.
+//These parenthesis are needed for potential parameters to be passed in, empty parameters are accepted and used often in JavaScript!
+
+</code></pre>
+
+<p><center><h1>EXERCISE:</h1></center></p>
+
+<ol>
+<li>Create a literal object inside the console with a firstName, lastName, and age. </li>
+<li>Assign a new variable to this object, then change it&#39;s name in the next line. </li>
+<li>Type your original literal object again inside the console to see that it has been updated!</li>
+</ol>
+
+  </div>
+</div>
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+
+    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+  </body>
+</html>
